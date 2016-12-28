@@ -11,87 +11,101 @@ using System.Windows.Forms;
 
 namespace AAEergasia1 {
     public partial class Form1 : Form {
-        private sidePanelPics side;
+        private SidePanel side;
         public Form1() {
             InitializeComponent();
-            side = new sidePanelPics(splitContainer1.Panel1);
-        }
-
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e) {
-            openFileDialog1.ShowDialog();
-            side.loadPics(openFileDialog1.FileNames);
-            foreach(var p in side.pics) {
-                p.MouseClick += openSidePic;
-            }
+            side = new SidePanel(splitContainer1.Panel1);
         }
 
         private void splitContainer1_Panel1_SizeChanged(object sender, EventArgs e) {
-            if(side!=null) side.update();
-            splitContainer1.Panel1.PerformLayout();
+            if(side!=null)
+                side.update();
+            resizeImage(null, null);
         }
 
         private void openSidePic(object sender, MouseEventArgs e) {
-            var p = sender as Pics;
+            var p = sender as Pic;
             mainPicture.Image = p.Image;
             richTextBox1.Text = p.description;
+            resizeImage(null, null);
         }
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+        { //TODO
             saveFileDialog1.ShowDialog();
             mainPicture.Image.Save(saveFileDialog1.FileName);
             StreamWriter fo = new StreamWriter(saveFileDialog1.FileName + ".txt");
-            fo.Write(richTextBox1.Text);
             fo.Flush();
             fo.Close();
         }
+
+        private void openImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                side.loadPics(openFileDialog1.FileNames);
+                foreach (Pic p in side.panel.Controls)
+                    p.MouseClick += openSidePic;
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Application.Exit();
+        }
+
+        private void resizeImage(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                mainPicture.Size = new Size(500, 400);
+                mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            }
+            else if (radioButton2.Checked)
+            {
+                mainPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            }
+        }
+
     }
 
-    class sidePanelPics {
-        public List<Pics> pics; 
-        private Panel sidePanel;
-        public sidePanelPics(Panel pan, string[] picNames = null) {
-            sidePanel = pan;
-            pics = new List<Pics>(); 
+    class SidePanel {
+        public Panel panel;
+
+        public SidePanel(Panel panel) {
+            this.panel = panel;
         }
 
         public void loadPics(string[] picNames) {
             foreach(string s in picNames) {
-                try
-                {
-                    pics.Add(new AAEergasia1.Pics(s, getText(new StreamReader(s + ".txt"))));
-                }catch(FileNotFoundException ex)
-                {
-                    pics.Add(new AAEergasia1.Pics(s, ""));
-                }
-                sidePanel.Controls.Add(pics.Last());
+                Pic pic = new Pic(s, File.Exists(s+".txt")? File.ReadAllText(s+".txt"):"No discription.");
+                panel.Controls.Add(pic);
             }
             update();
         }
 
         public void update() {
-            int Width = sidePanel.Size.Width - 35;
+            int Width = panel.Size.Width - 20;
             int Height = Width;
-            for (int i = 0; i < pics.Count; i++) {
-                pics[i].Size = new Size(Width, Width);
-                pics[i].Top = 10 + (Height + 10) * i;
-                pics[i].Left = 10;
+            for (int i = 0; i < panel.Controls.Count; i++) {
+                Pic pic = (Pic)panel.Controls[i];
+                pic.Size = new Size(Width, Height);
+                pic.Top = 10 + (Height + 10) * i;
+                pic.Left = 10;
             }
-        }
-        string getText(StreamReader fi)
-        {
-            string s=fi.ReadToEnd();
-            fi.Close();
-            return s;
         }
 
     }
 
-    class Pics : PictureBox {
+    class Pic : PictureBox {
         public string description = "";
-        public Pics(string str,string desc) : base() {
+        public Pic(string str,string desc) : base() {
             Image = new Bitmap(str);
             SizeMode = PictureBoxSizeMode.StretchImage;
+            Cursor = Cursors.Hand;
             description = desc;
         } 
     }
