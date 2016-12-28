@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +34,16 @@ namespace AAEergasia1 {
             var p = sender as Pics;
             mainPicture.Image = p.Image;
         }
+
+        private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+            mainPicture.Image.Save(saveFileDialog1.FileName);
+            StreamWriter fo = new StreamWriter(saveFileDialog1.FileName + ".txt");
+            fo.Write(richTextBox1.Text);
+            fo.Flush();
+            fo.Close();
+        }
     }
 
     class sidePanelPics {
@@ -40,7 +51,7 @@ namespace AAEergasia1 {
         private Panel sidePanel;
         public sidePanelPics(Panel pan, string[] picNames = null) {
             sidePanel = pan;
-            pics = new List<Pics> { }; 
+            pics = new List<Pics>(); 
         }
 
         public void loadPics(string[] picNames) {
