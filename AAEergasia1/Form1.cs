@@ -33,6 +33,7 @@ namespace AAEergasia1 {
         private void openSidePic(object sender, MouseEventArgs e) {
             var p = sender as Pics;
             mainPicture.Image = p.Image;
+            richTextBox1.Text = p.description;
         }
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -56,7 +57,13 @@ namespace AAEergasia1 {
 
         public void loadPics(string[] picNames) {
             foreach(string s in picNames) {
-                pics.Add(new AAEergasia1.Pics(s));
+                try
+                {
+                    pics.Add(new AAEergasia1.Pics(s, getText(new StreamReader(s + ".txt"))));
+                }catch(FileNotFoundException ex)
+                {
+                    pics.Add(new AAEergasia1.Pics(s, ""));
+                }
                 sidePanel.Controls.Add(pics.Last());
             }
             update();
@@ -71,13 +78,21 @@ namespace AAEergasia1 {
                 pics[i].Left = 10;
             }
         }
+        string getText(StreamReader fi)
+        {
+            string s=fi.ReadToEnd();
+            fi.Close();
+            return s;
+        }
 
     }
 
     class Pics : PictureBox {
-        public Pics(string str) : base() {
+        public string description = "";
+        public Pics(string str,string desc) : base() {
             Image = new Bitmap(str);
             SizeMode = PictureBoxSizeMode.StretchImage;
+            description = desc;
         } 
     }
 }
