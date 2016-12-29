@@ -28,6 +28,18 @@ namespace AAEergasia1 {
             mainPicture.Image = p.Image;
             richTextBox1.Text = p.description;
             resizeImage(null, null);
+            side.selected = p;
+        }
+
+
+        private void nextPic(object sender, EventArgs e) {//change func name
+            if (side.selected == null || side.panel.Controls.Count == 0) return; 
+            int selectedPos = side.panel.Controls.IndexOf(side.selected);
+            var btn = sender as Button;
+            selectedPos += btn.Name == "nextBtn" ? 1 : -1;
+            selectedPos = selectedPos < 0 ? side.panel.Controls.Count - 1 : selectedPos >= side.panel.Controls.Count ? 0 : selectedPos;//circle
+            side.selected = side.panel.Controls[selectedPos] as Pic;
+            openSidePic(side.selected, null);
         }
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -81,11 +93,14 @@ namespace AAEergasia1 {
         private void checkBox1_CheckStateChanged(object sender, EventArgs e) {
             richTextBox1.Visible = checkBox1.Checked;
         }
+
+
     }
 
+    ////..add highlight for selected pic
     class SidePanel {
         public Panel panel;
-
+        public Pic selected=null;
         public SidePanel(Panel panel) {
             this.panel = panel;
         }
@@ -107,6 +122,7 @@ namespace AAEergasia1 {
                 pic.Top = 10 + (Height + 10) * i;///bugged when panel is "scrolled" down
                 pic.Left = 10;
             }
+            panel.PerformLayout();
         }
 
     }
@@ -118,6 +134,6 @@ namespace AAEergasia1 {
             SizeMode = PictureBoxSizeMode.StretchImage;
             Cursor = Cursors.Hand;
             description = desc;
-        } 
+        }
     }
 }

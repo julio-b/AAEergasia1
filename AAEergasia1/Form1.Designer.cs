@@ -93,6 +93,7 @@
             this.previousBtn.TabIndex = 1;
             this.previousBtn.Text = "<";
             this.previousBtn.UseVisualStyleBackColor = true;
+            this.previousBtn.Click += new System.EventHandler(this.nextPic);
             // 
             // radioButton2
             // 
@@ -115,6 +116,7 @@
             this.nextBtn.TabIndex = 0;
             this.nextBtn.Text = ">";
             this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextPic);
             // 
             // radioButton1
             // 
