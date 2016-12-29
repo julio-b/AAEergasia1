@@ -24,21 +24,25 @@
         /// </summary>
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.controlPanel = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.previousBtn = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.nextBtn = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.switchSidePanelBtn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-	    this.mainPicture = new System.Windows.Forms.PictureBox();
+            this.mainPicture = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
+            this.controlPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -50,28 +54,67 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.previousBtn);
-            this.panel1.Controls.Add(this.nextBtn);
+            this.panel1.Controls.Add(this.controlPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 510);
+            this.panel1.Location = new System.Drawing.Point(0, 531);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(967, 52);
+            this.panel1.Size = new System.Drawing.Size(971, 52);
             this.panel1.TabIndex = 0;
+            // 
+            // controlPanel
+            // 
+            this.controlPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.controlPanel.Controls.Add(this.checkBox1);
+            this.controlPanel.Controls.Add(this.previousBtn);
+            this.controlPanel.Controls.Add(this.radioButton2);
+            this.controlPanel.Controls.Add(this.nextBtn);
+            this.controlPanel.Controls.Add(this.radioButton1);
+            this.controlPanel.Location = new System.Drawing.Point(299, 5);
+            this.controlPanel.Name = "controlPanel";
+            this.controlPanel.Size = new System.Drawing.Size(379, 42);
+            this.controlPanel.TabIndex = 4;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(282, 14);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(58, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Details";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
+            // 
+            // previousBtn
+            // 
+            this.previousBtn.Location = new System.Drawing.Point(3, 11);
+            this.previousBtn.Name = "previousBtn";
+            this.previousBtn.Size = new System.Drawing.Size(26, 21);
+            this.previousBtn.TabIndex = 1;
+            this.previousBtn.Text = "<";
+            this.previousBtn.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton2.Location = new System.Drawing.Point(819, 18);
+            this.radioButton2.Location = new System.Drawing.Point(183, 10);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
+            this.radioButton2.Size = new System.Drawing.Size(77, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.resizeImage);
+            // 
+            // nextBtn
+            // 
+            this.nextBtn.Location = new System.Drawing.Point(35, 11);
+            this.nextBtn.Name = "nextBtn";
+            this.nextBtn.Size = new System.Drawing.Size(28, 21);
+            this.nextBtn.TabIndex = 0;
+            this.nextBtn.Text = ">";
+            this.nextBtn.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -79,32 +122,14 @@
             this.radioButton1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton1.Location = new System.Drawing.Point(730, 18);
+            this.radioButton1.Location = new System.Drawing.Point(94, 10);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
+            this.radioButton1.Size = new System.Drawing.Size(84, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
             this.radioButton1.UseVisualStyleBackColor = false;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.resizeImage);
-            // 
-            // previousBtn
-            // 
-            this.previousBtn.Location = new System.Drawing.Point(394, 18);
-            this.previousBtn.Name = "previousBtn";
-            this.previousBtn.Size = new System.Drawing.Size(38, 23);
-            this.previousBtn.TabIndex = 1;
-            this.previousBtn.Text = "<";
-            this.previousBtn.UseVisualStyleBackColor = true;
-            // 
-            // nextBtn
-            // 
-            this.nextBtn.Location = new System.Drawing.Point(447, 18);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(41, 23);
-            this.nextBtn.TabIndex = 0;
-            this.nextBtn.Text = ">";
-            this.nextBtn.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -113,7 +138,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -166,27 +191,44 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.splitContainer1.Panel2.Controls.Add(this.switchSidePanelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.mainPicture);
-            this.splitContainer1.Size = new System.Drawing.Size(967, 486);
-            this.splitContainer1.SplitterDistance = 220;
+            this.splitContainer1.Size = new System.Drawing.Size(971, 507);
+            this.splitContainer1.SplitterDistance = 123;
             this.splitContainer1.TabIndex = 2;
-	    //
-            // richTextBox1		
-            // 		
-            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;		
-            this.richTextBox1.Location = new System.Drawing.Point(158, 369);		
-            this.richTextBox1.Name = "richTextBox1";		
-            this.richTextBox1.Size = new System.Drawing.Size(467, 49);		
-            this.richTextBox1.TabIndex = 1;		
-            this.richTextBox1.Text = "keimeno....................................................................";		
+            // 
+            // switchSidePanelBtn
+            // 
+            this.switchSidePanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.switchSidePanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.switchSidePanelBtn.Location = new System.Drawing.Point(3, 3);
+            this.switchSidePanelBtn.Name = "switchSidePanelBtn";
+            this.switchSidePanelBtn.Size = new System.Drawing.Size(18, 22);
+            this.switchSidePanelBtn.TabIndex = 2;
+            this.switchSidePanelBtn.Text = "<";
+            this.switchSidePanelBtn.UseVisualStyleBackColor = true;
+            this.switchSidePanelBtn.Click += new System.EventHandler(this.switchSidePanelBtn_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(173, 465);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(478, 35);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "keimeno....................................................................";
+            this.richTextBox1.Visible = false;
             // 
             // mainPicture
             // 
             this.mainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPicture.Image = global::AAEergasia1.Properties.Resources.no_image;
-            this.mainPicture.Location = new System.Drawing.Point(102, 84);
+            this.mainPicture.Location = new System.Drawing.Point(153, 94);
             this.mainPicture.Name = "mainPicture";
             this.mainPicture.Size = new System.Drawing.Size(519, 331);
             this.mainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -202,7 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 562);
+            this.ClientSize = new System.Drawing.Size(971, 583);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -212,7 +254,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Viewer";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.controlPanel.ResumeLayout(false);
+            this.controlPanel.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -241,6 +284,9 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button previousBtn;
         private System.Windows.Forms.Button nextBtn;
+        private System.Windows.Forms.Panel controlPanel;
+        private System.Windows.Forms.Button switchSidePanelBtn;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

@@ -32,11 +32,13 @@ namespace AAEergasia1 {
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
         { //TODO
-            saveFileDialog1.ShowDialog();
-            mainPicture.Image.Save(saveFileDialog1.FileName);
-            StreamWriter fo = new StreamWriter(saveFileDialog1.FileName + ".txt");
-            fo.Flush();
-            fo.Close();
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
+                mainPicture.Image.Save(saveFileDialog1.FileName);
+                //StreamWriter fo = new StreamWriter(saveFileDialog1.FileName + ".txt");
+                //fo.Flush();
+                //fo.Close();
+                File.WriteAllText(saveFileDialog1.FileName + ".txt", richTextBox1.Text);
+            }
         }
 
         private void openImagesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,6 +72,15 @@ namespace AAEergasia1 {
             }
         }
 
+        private void switchSidePanelBtn_Click(object sender, EventArgs e) {
+            side.panel.Visible = !side.panel.Visible;
+            splitContainer1.Panel1Collapsed = !side.panel.Visible;
+            switchSidePanelBtn.Text = side.panel.Visible ? "<" : ">";
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e) {
+            richTextBox1.Visible = checkBox1.Checked;
+        }
     }
 
     class SidePanel {
@@ -81,7 +92,7 @@ namespace AAEergasia1 {
 
         public void loadPics(string[] picNames) {
             foreach(string s in picNames) {
-                Pic pic = new Pic(s, File.Exists(s+".txt")? File.ReadAllText(s+".txt"):"No discription.");
+                Pic pic = new Pic(s, File.Exists(s+".txt")? File.ReadAllText(s+".txt"):"No description.");
                 panel.Controls.Add(pic);
             }
             update();
@@ -89,11 +100,11 @@ namespace AAEergasia1 {
 
         public void update() {
             int Width = panel.Size.Width - 20;
-            int Height = Width;
+            int Height = Width;///
             for (int i = 0; i < panel.Controls.Count; i++) {
                 Pic pic = (Pic)panel.Controls[i];
                 pic.Size = new Size(Width, Height);
-                pic.Top = 10 + (Height + 10) * i;
+                pic.Top = 10 + (Height + 10) * i;///bugged when panel is "scrolled" down
                 pic.Left = 10;
             }
         }
