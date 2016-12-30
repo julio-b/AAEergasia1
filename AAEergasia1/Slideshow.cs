@@ -23,19 +23,11 @@ namespace AAEergasia1
         int prevIm=-1;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
-            BackgroundImage = picList[getNextImage()];
-            
-        }
-
-        int getNextImage()
-        {
             int curIm = rnd.Next(0, picList.Count);
-            while(curIm == prevIm) curIm = rnd.Next(0, picList.Count);
+            while (curIm == prevIm && picList.Count>1) curIm = rnd.Next(0, picList.Count);
             prevIm = curIm;
-            return curIm;
+            BackgroundImage = picList[curIm];
             
-
         }
         
         private void Slideshow_KeyDown(object sender, KeyEventArgs e)
