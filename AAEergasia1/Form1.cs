@@ -127,6 +127,16 @@ namespace AAEergasia1 {
             mainPicture.Size = new Size((int)w, (int)h);
             mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string about = "Created by:\n";
+            about += "\tΓιώργος\n";
+            about += "\tΘεοφάνης\n";
+            about += "\tΤζούλιο\n";
+            MessageBox.Show(about, "About");
+        }
+
     }
 
     class SidePanel {

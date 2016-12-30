@@ -39,6 +39,10 @@
             this.openImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oneColorOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.negativeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.switchSidePanelBtn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -192,7 +196,9 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.imageFiltersToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(971, 24);
@@ -230,6 +236,34 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // imageFiltersToolStripMenuItem
+            // 
+            this.imageFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oneColorOnlyToolStripMenuItem,
+            this.negativeColorToolStripMenuItem});
+            this.imageFiltersToolStripMenuItem.Name = "imageFiltersToolStripMenuItem";
+            this.imageFiltersToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.imageFiltersToolStripMenuItem.Text = "Image Filters";
+            // 
+            // oneColorOnlyToolStripMenuItem
+            // 
+            this.oneColorOnlyToolStripMenuItem.Name = "oneColorOnlyToolStripMenuItem";
+            this.oneColorOnlyToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.oneColorOnlyToolStripMenuItem.Text = "One Color Only";
+            // 
+            // negativeColorToolStripMenuItem
+            // 
+            this.negativeColorToolStripMenuItem.Name = "negativeColorToolStripMenuItem";
+            this.negativeColorToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.negativeColorToolStripMenuItem.Text = "Negative Color";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -350,6 +384,10 @@
         private System.Windows.Forms.TrackBar zoomBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem imageFiltersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oneColorOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem negativeColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
