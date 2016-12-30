@@ -25,6 +25,9 @@
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.zoomBar = new System.Windows.Forms.TrackBar();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.previousBtn = new System.Windows.Forms.Button();
@@ -44,6 +47,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,6 +69,9 @@
             // controlPanel
             // 
             this.controlPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.controlPanel.Controls.Add(this.label2);
+            this.controlPanel.Controls.Add(this.label1);
+            this.controlPanel.Controls.Add(this.zoomBar);
             this.controlPanel.Controls.Add(this.button1);
             this.controlPanel.Controls.Add(this.checkBox1);
             this.controlPanel.Controls.Add(this.previousBtn);
@@ -73,8 +80,44 @@
             this.controlPanel.Controls.Add(this.radioButton1);
             this.controlPanel.Location = new System.Drawing.Point(238, 5);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(440, 42);
+            this.controlPanel.Size = new System.Drawing.Size(609, 42);
             this.controlPanel.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(567, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 30);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "+";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(430, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "-";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // zoomBar
+            // 
+            this.zoomBar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.zoomBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.zoomBar.Location = new System.Drawing.Point(457, 10);
+            this.zoomBar.Maximum = 70;
+            this.zoomBar.Minimum = -70;
+            this.zoomBar.Name = "zoomBar";
+            this.zoomBar.Size = new System.Drawing.Size(104, 45);
+            this.zoomBar.TabIndex = 6;
+            this.zoomBar.Scroll += new System.EventHandler(this.zoomBar_Scroll);
             // 
             // button1
             // 
@@ -271,6 +314,7 @@
             this.panel1.ResumeLayout(false);
             this.controlPanel.ResumeLayout(false);
             this.controlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -303,6 +347,9 @@
         private System.Windows.Forms.Button switchSidePanelBtn;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar zoomBar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

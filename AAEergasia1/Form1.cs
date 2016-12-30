@@ -77,14 +77,22 @@ namespace AAEergasia1 {
         {
             if (radioButton1.Checked)
             {
-                mainPicture.Size = new Size(500, 400);
                 mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+                zoomBar.Value = 0;
+                if(mainPicture.Image != null)
+                    zoomBar_Scroll(null, null);
+                label1.Visible = true;
+                label2.Visible = true;
+                zoomBar.Visible = true;
             }
             else if (radioButton2.Checked)
             {
                 mainPicture.SizeMode = PictureBoxSizeMode.AutoSize;
                 mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+                //hide zoom
+                label1.Visible = false;
+                label2.Visible = false;
+                zoomBar.Visible = false;
             }
         }
 
@@ -110,9 +118,17 @@ namespace AAEergasia1 {
             else
                 MessageBox.Show("Please load images first!");
         }
+
+        private void zoomBar_Scroll(object sender, EventArgs e)
+        {
+            float ratio = zoomBar.Value / 100f; //(-70,+70)%
+            float w = mainPicture.Image.Width * (1 + ratio);
+            float h = mainPicture.Image.Height * (1 + ratio);
+            mainPicture.Size = new Size((int)w, (int)h);
+            mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+        }
     }
 
-    ////..add highlight for selected pic
     class SidePanel {
         public Panel panel;
         public Pic selected=null;
