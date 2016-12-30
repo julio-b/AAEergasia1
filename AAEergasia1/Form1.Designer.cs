@@ -49,6 +49,7 @@
             this.mainPicture = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -121,6 +122,7 @@
             this.zoomBar.Name = "zoomBar";
             this.zoomBar.Size = new System.Drawing.Size(104, 45);
             this.zoomBar.TabIndex = 6;
+            this.zoomBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.zoomBar.Scroll += new System.EventHandler(this.zoomBar_Scroll);
             // 
             // button1
@@ -251,6 +253,7 @@
             this.oneColorOnlyToolStripMenuItem.Name = "oneColorOnlyToolStripMenuItem";
             this.oneColorOnlyToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.oneColorOnlyToolStripMenuItem.Text = "One Color Only";
+            this.oneColorOnlyToolStripMenuItem.Click += new System.EventHandler(this.oneColorOnlyToolStripMenuItem_Click);
             // 
             // negativeColorToolStripMenuItem
             // 
@@ -388,6 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem oneColorOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem negativeColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

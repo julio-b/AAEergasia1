@@ -137,6 +137,25 @@ namespace AAEergasia1 {
             MessageBox.Show(about, "About");
         }
 
+        private void oneColorOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() != DialogResult.OK) return;
+            Bitmap img = new Bitmap(mainPicture.Image);
+            Color c = colorDialog1.Color;
+            for (int y = 0; y < img.Height; y++)
+            {
+                for (int x = 0; x < img.Width; x++)
+                {
+                    Color pixel = img.GetPixel(x, y);
+                    float avg = (pixel.R + pixel.G + pixel.B) / 3f;
+                    float r = (avg / 255) * c.R;
+                    float g = (avg / 255) * c.G;
+                    float b = (avg / 255) * c.B;
+                    img.SetPixel(x, y, Color.FromArgb((int)r, (int)g, (int)b)); 
+                }
+            }
+            mainPicture.Image = img;
+        }
     }
 
     class SidePanel {
