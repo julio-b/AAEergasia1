@@ -41,6 +41,7 @@
             this.mainPicture = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -64,20 +65,21 @@
             // controlPanel
             // 
             this.controlPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.controlPanel.Controls.Add(this.button1);
             this.controlPanel.Controls.Add(this.checkBox1);
             this.controlPanel.Controls.Add(this.previousBtn);
             this.controlPanel.Controls.Add(this.radioButton2);
             this.controlPanel.Controls.Add(this.nextBtn);
             this.controlPanel.Controls.Add(this.radioButton1);
-            this.controlPanel.Location = new System.Drawing.Point(299, 5);
+            this.controlPanel.Location = new System.Drawing.Point(238, 5);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(379, 42);
+            this.controlPanel.Size = new System.Drawing.Size(440, 42);
             this.controlPanel.TabIndex = 4;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(282, 14);
+            this.checkBox1.Location = new System.Drawing.Point(343, 14);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(58, 17);
             this.checkBox1.TabIndex = 4;
@@ -100,7 +102,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton2.Location = new System.Drawing.Point(183, 10);
+            this.radioButton2.Location = new System.Drawing.Point(244, 10);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(77, 21);
             this.radioButton2.TabIndex = 3;
@@ -110,7 +112,7 @@
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(35, 11);
+            this.nextBtn.Location = new System.Drawing.Point(121, 11);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(28, 21);
             this.nextBtn.TabIndex = 0;
@@ -124,7 +126,7 @@
             this.radioButton1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton1.Location = new System.Drawing.Point(94, 10);
+            this.radioButton1.Location = new System.Drawing.Point(155, 10);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(84, 21);
             this.radioButton1.TabIndex = 2;
@@ -242,6 +244,16 @@
             this.openFileDialog1.Filter = "Image files (*.jpg , *.png) | *.jpg; *.png";
             this.openFileDialog1.Multiselect = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(35, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Slide Show";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +301,7 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Button switchSidePanelBtn;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

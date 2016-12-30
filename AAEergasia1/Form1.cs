@@ -94,7 +94,12 @@ namespace AAEergasia1 {
             richTextBox1.Visible = checkBox1.Checked;
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Slideshow slide = new Slideshow(side.GetImages());
+            slide.Show();
+            slide.Focus();
+        }
     }
 
     ////..add highlight for selected pic
@@ -103,6 +108,16 @@ namespace AAEergasia1 {
         public Pic selected=null;
         public SidePanel(Panel panel) {
             this.panel = panel;
+        }
+
+        public List<Image> GetImages()
+        {
+            List<Image> pics = new List<Image>();
+            foreach(Pic p in panel.Controls)
+            {
+                pics.Add(p.Image);
+            }
+            return pics;
         }
 
         public void loadPics(string[] picNames) {
@@ -127,7 +142,7 @@ namespace AAEergasia1 {
 
     }
 
-    class Pic : PictureBox {
+    public class Pic : PictureBox {
         public string description = "";
         public Pic(string str,string desc) : base() {
             Image = new Bitmap(str);
