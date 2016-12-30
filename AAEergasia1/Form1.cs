@@ -137,39 +137,34 @@ namespace AAEergasia1 {
         private void oneColorOnlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() != DialogResult.OK) return;
-            Bitmap img = new Bitmap(mainPicture.Image);
             Color c = colorDialog1.Color;
-            for (int y = 0; y < img.Height; y++)
-            {
-                for (int x = 0; x < img.Width; x++)
-                {
-                    Color pixel = img.GetPixel(x, y);
-                    float avg = (pixel.R + pixel.G + pixel.B) / 3f;
-                    float r = (avg / 255) * c.R;
-                    float g = (avg / 255) * c.G;
-                    float b = (avg / 255) * c.B;
-                    img.SetPixel(x, y, Color.FromArgb((int)r, (int)g, (int)b)); 
-                }
-            }
-            mainPicture.Image = img;
+            colorFilter(delegate(Color pixel) {
+                float avg = (pixel.R + pixel.G + pixel.B) / 3f;
+                float r = (avg / 255) * c.R;
+                float g = (avg / 255) * c.G;
+                float b = (avg / 255) * c.B;
+                return Color.FromArgb((int)r, (int)g, (int)b);
+            });
         }
 
         private void negativeColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            colorFilter(delegate(Color pixel) {
+                return Color.FromArgb(255-pixel.R, 255-pixel.G, 255-pixel.B);
+            });
+        }
+
+        //efarmozei to filtro se ola ta pixel ths eikonas
+        private void colorFilter(ColorOperation filter)
+        {
             Bitmap img = new Bitmap(mainPicture.Image);
             for (int y = 0; y < img.Height; y++)
-            {
                 for (int x = 0; x < img.Width; x++)
-                {
-                    Color pixel = img.GetPixel(x, y);
-                    int r = 255-pixel.R;
-                    int b = 255-pixel.B;
-                    int g = 255-pixel.G;
-                    img.SetPixel(x, y, Color.FromArgb(r, g, b));
-                }
-            }
+                    img.SetPixel(x, y, filter(img.GetPixel(x, y))); //apply given filter
             mainPicture.Image = img;
         }
+
+        private delegate Color ColorOperation(Color pixel);
     }
 
     class SidePanel {
