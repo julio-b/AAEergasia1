@@ -163,7 +163,7 @@
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton2.Location = new System.Drawing.Point(244, 10);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
+            this.radioButton2.Size = new System.Drawing.Size(77, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton1.Location = new System.Drawing.Point(155, 10);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
+            this.radioButton1.Size = new System.Drawing.Size(84, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
@@ -260,6 +260,7 @@
             this.negativeColorToolStripMenuItem.Name = "negativeColorToolStripMenuItem";
             this.negativeColorToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.negativeColorToolStripMenuItem.Text = "Negative Color";
+            this.negativeColorToolStripMenuItem.Click += new System.EventHandler(this.negativeColorToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 

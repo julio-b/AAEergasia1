@@ -156,6 +156,23 @@ namespace AAEergasia1 {
             }
             mainPicture.Image = img;
         }
+
+        private void negativeColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap img = new Bitmap(mainPicture.Image);
+            for (int y = 0; y < img.Height; y++)
+            {
+                for (int x = 0; x < img.Width; x++)
+                {
+                    Color pixel = img.GetPixel(x, y);
+                    int r = 255-pixel.R;
+                    int b = 255-pixel.B;
+                    int g = 255-pixel.G;
+                    img.SetPixel(x, y, Color.FromArgb(r, g, b));
+                }
+            }
+            mainPicture.Image = img;
+        }
     }
 
     class SidePanel {
