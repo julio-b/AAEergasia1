@@ -17,20 +17,11 @@ namespace AAEergasia1
         public Slideshow(List<Image> pics)
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
             picList = pics;
-            if (picList.Count != 0)
-            {
-                slidePictureBox.Image = picList[0];
-                resize();
-            }
-            timer1.Start();
-
+            timer1_Tick(null, null);
         }
         
-        int c = 0;
-        
-        void resize()
+        private void resize()
         {
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
@@ -41,16 +32,8 @@ namespace AAEergasia1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (c >= 3)
-            {
-                c = 0;
-                slidePictureBox.Image = picList[rnd.Next(0, picList.Count)];
-                resize();
-            }
-            else
-            {
-                c++;
-            }
+            slidePictureBox.Image = picList[rnd.Next(0, picList.Count)];
+            resize();
         }
 
         
@@ -64,7 +47,6 @@ namespace AAEergasia1
         {
             slidePictureBox.Image = picList[rnd.Next(0, picList.Count)];
             resize();
-            c = 0;
         }
     }
 }

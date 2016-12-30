@@ -28,18 +28,22 @@ namespace AAEergasia1 {
             mainPicture.Image = p.Image;
             richTextBox1.Text = p.description;
             resizeImage(null, null);
+            if(side.selected != null) //an den einai to prwto,mono tote exei prohgoumeno
+                side.selected.BorderStyle = BorderStyle.None;
             side.selected = p;
+            side.selected.BorderStyle = BorderStyle.Fixed3D;
         }
 
 
-        private void nextPic(object sender, EventArgs e) {//change func name
+        private void nextPic(object sender, EventArgs e) {
             if (side.selected == null || side.panel.Controls.Count == 0) return; 
             int selectedPos = side.panel.Controls.IndexOf(side.selected);
             var btn = sender as Button;
             selectedPos += btn.Name == "nextBtn" ? 1 : -1;
             selectedPos = selectedPos < 0 ? side.panel.Controls.Count - 1 : selectedPos >= side.panel.Controls.Count ? 0 : selectedPos;//circle
-            side.selected = side.panel.Controls[selectedPos] as Pic;
-            openSidePic(side.selected, null);
+            Pic selected = side.panel.Controls[selectedPos] as Pic;
+            side.panel.ScrollControlIntoView(selected);
+            openSidePic(selected, null);
         }
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -96,9 +100,15 @@ namespace AAEergasia1 {
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Slideshow slide = new Slideshow(side.GetImages());
-            slide.Show();
-            slide.Focus();
+            List<Image> pics = side.GetImages();
+            if (pics.Count != 0)
+            {
+                Slideshow slide = new Slideshow(pics);
+                slide.Show();
+                slide.Focus();
+            }
+            else
+                MessageBox.Show("Please load images first!");
         }
     }
 
@@ -134,7 +144,7 @@ namespace AAEergasia1 {
             for (int i = 0; i < panel.Controls.Count; i++) {
                 Pic pic = (Pic)panel.Controls[i];
                 pic.Size = new Size(Width, Height);
-                pic.Top = 10 + (Height + 10) * i;///bugged when panel is "scrolled" down
+                pic.Top = 10 + (Height + 10) * i;
                 pic.Left = 10;
             }
             panel.PerformLayout();
