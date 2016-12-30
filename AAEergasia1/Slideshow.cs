@@ -20,33 +20,34 @@ namespace AAEergasia1
             picList = pics;
             timer1_Tick(null, null);
         }
-        
-        private void resize()
-        {
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            int h = Screen.PrimaryScreen.Bounds.Height;
-            slidePictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-            slidePictureBox.Location = new Point(w / 2 - slidePictureBox.Width / 2, h / 2 - slidePictureBox.Height / 2);
-        }
-
-
+        int prevIm=-1;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            slidePictureBox.Image = picList[rnd.Next(0, picList.Count)];
-            resize();
+            
+            BackgroundImage = picList[getNextImage()];
+            
         }
 
-        
+        int getNextImage()
+        {
+            int curIm = rnd.Next(0, picList.Count);
+            while(curIm == prevIm) curIm = rnd.Next(0, picList.Count);
+            prevIm = curIm;
+            return curIm;
+            
 
+        }
+        
         private void Slideshow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) Dispose();
         }
 
-        private void slidePictureBox_Click(object sender, EventArgs e)
+        private void Slideshow_Click(object sender, EventArgs e)
         {
-            slidePictureBox.Image = picList[rnd.Next(0, picList.Count)];
-            resize();
+            timer1.Stop();
+            timer1_Tick(null, null);
+            timer1.Start();
         }
     }
 }
