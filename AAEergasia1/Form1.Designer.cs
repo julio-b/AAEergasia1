@@ -163,7 +163,7 @@
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton2.Location = new System.Drawing.Point(244, 10);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 21);
+            this.radioButton2.Size = new System.Drawing.Size(78, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton1.Location = new System.Drawing.Point(155, 10);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 21);
+            this.radioButton1.Size = new System.Drawing.Size(83, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
@@ -221,21 +221,21 @@
             // openImagesToolStripMenuItem
             // 
             this.openImagesToolStripMenuItem.Name = "openImagesToolStripMenuItem";
-            this.openImagesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openImagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openImagesToolStripMenuItem.Text = "Open Images..";
             this.openImagesToolStripMenuItem.Click += new System.EventHandler(this.openImagesToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem1.Text = "Save As..";
             this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -335,6 +335,12 @@
             // 
             this.openFileDialog1.Filter = "Image files (*.jpg , *.png) | *.jpg; *.png";
             this.openFileDialog1.Multiselect = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileName = "image";
+            this.saveFileDialog1.SupportMultiDottedExtensions = true;
+            this.saveFileDialog1.Title = "Save as..";
             // 
             // Form1
             // 

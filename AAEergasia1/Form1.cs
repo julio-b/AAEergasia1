@@ -47,12 +47,9 @@ namespace AAEergasia1 {
         }
 
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
-        { //TODO
+        {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
-                mainPicture.Image.Save(saveFileDialog1.FileName);
-                //StreamWriter fo = new StreamWriter(saveFileDialog1.FileName + ".txt");
-                //fo.Flush();
-                //fo.Close();
+                mainPicture.Image.Save(saveFileDialog1.FileName + ".png");
                 File.WriteAllText(saveFileDialog1.FileName + ".txt", richTextBox1.Text);
             }
         }
