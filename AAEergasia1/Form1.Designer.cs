@@ -28,7 +28,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.zoomBar = new System.Windows.Forms.TrackBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.slideShowBtn = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.previousBtn = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -50,6 +50,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -77,7 +78,7 @@
             this.controlPanel.Controls.Add(this.label2);
             this.controlPanel.Controls.Add(this.label1);
             this.controlPanel.Controls.Add(this.zoomBar);
-            this.controlPanel.Controls.Add(this.button1);
+            this.controlPanel.Controls.Add(this.slideShowBtn);
             this.controlPanel.Controls.Add(this.checkBox1);
             this.controlPanel.Controls.Add(this.previousBtn);
             this.controlPanel.Controls.Add(this.radioButton2);
@@ -125,15 +126,15 @@
             this.zoomBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.zoomBar.Scroll += new System.EventHandler(this.zoomBar_Scroll);
             // 
-            // button1
+            // slideShowBtn
             // 
-            this.button1.Location = new System.Drawing.Point(35, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Slide Show";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.slideShowBtn.Location = new System.Drawing.Point(35, 9);
+            this.slideShowBtn.Name = "slideShowBtn";
+            this.slideShowBtn.Size = new System.Drawing.Size(80, 23);
+            this.slideShowBtn.TabIndex = 5;
+            this.slideShowBtn.Text = "Slide Show";
+            this.slideShowBtn.UseVisualStyleBackColor = true;
+            this.slideShowBtn.Click += new System.EventHandler(this.slideShowBtn_Click);
             // 
             // checkBox1
             // 
@@ -163,7 +164,7 @@
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton2.Location = new System.Drawing.Point(244, 10);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
+            this.radioButton2.Size = new System.Drawing.Size(77, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
@@ -187,7 +188,7 @@
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton1.Location = new System.Drawing.Point(155, 10);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
+            this.radioButton1.Size = new System.Drawing.Size(84, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
@@ -213,7 +214,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openImagesToolStripMenuItem,
             this.saveAsToolStripMenuItem1,
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.randomSlideShowToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -221,21 +223,21 @@
             // openImagesToolStripMenuItem
             // 
             this.openImagesToolStripMenuItem.Name = "openImagesToolStripMenuItem";
-            this.openImagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openImagesToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.openImagesToolStripMenuItem.Text = "Open Images..";
             this.openImagesToolStripMenuItem.Click += new System.EventHandler(this.openImagesToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
-            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(174, 22);
             this.saveAsToolStripMenuItem1.Text = "Save As..";
             this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -342,6 +344,13 @@
             this.saveFileDialog1.SupportMultiDottedExtensions = true;
             this.saveFileDialog1.Title = "Save as..";
             // 
+            // randomSlideShowToolStripMenuItem
+            // 
+            this.randomSlideShowToolStripMenuItem.Name = "randomSlideShowToolStripMenuItem";
+            this.randomSlideShowToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.randomSlideShowToolStripMenuItem.Text = "random slide show";
+            this.randomSlideShowToolStripMenuItem.Click += new System.EventHandler(this.randomSlideShowToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,7 +399,7 @@
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Button switchSidePanelBtn;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button slideShowBtn;
         private System.Windows.Forms.TrackBar zoomBar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -399,6 +408,7 @@
         private System.Windows.Forms.ToolStripMenuItem negativeColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem randomSlideShowToolStripMenuItem;
     }
 }
 

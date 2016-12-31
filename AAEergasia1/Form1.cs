@@ -103,12 +103,12 @@ namespace AAEergasia1 {
             richTextBox1.Visible = checkBox1.Checked;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void slideShowBtn_Click(object sender, EventArgs e)
         {
             List<Image> pics = side.GetImages();
             if (pics.Count != 0)
             {
-                Slideshow slide = new Slideshow(pics);
+                Slideshow slide = new Slideshow(pics, randomSlideShowToolStripMenuItem.Checked);
                 slide.Show();
                 slide.Focus();
             }
@@ -165,6 +165,11 @@ namespace AAEergasia1 {
         }
 
         private delegate Color ColorOperation(Color pixel);
+
+        private void randomSlideShowToolStripMenuItem_Click(object sender, EventArgs e) {
+            var s = sender as ToolStripMenuItem;
+            s.Checked = !s.Checked;
+        }
     }
 
     class SidePanel {

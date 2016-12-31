@@ -14,22 +14,35 @@ namespace AAEergasia1
     {
         Random rnd = new Random();
         private List<Image> picList;
-        public Slideshow(List<Image> pics)
+        private bool randomOrder = false;
+        public Slideshow(List<Image> pics, bool random)
         {
             InitializeComponent();
             picList = pics;
+            randomOrder = random;
             timer1_Tick(null, null);
         }
-        int prevIm=-1;
+        int position=int.MaxValue-1;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int curIm = rnd.Next(0, picList.Count);
-            while (curIm == prevIm && picList.Count>1) curIm = rnd.Next(0, picList.Count);
-            prevIm = curIm;
-            BackgroundImage = picList[curIm];
+            position++;
+            if (position >= picList.Count) {
+                if(randomOrder) shufflePics();
+                position = 0;
+            }
+            BackgroundImage = picList[position];
             
         }
-        
+
+        private void shufflePics() {
+            for (int i = 0; i < picList.Count; i++) {
+                int j = rnd.Next(i, picList.Count);
+                Image tmp = picList[i];
+                picList[i] = picList[j];
+                picList[j] = tmp;
+            } 
+        }
+
         private void Slideshow_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape) Dispose();
