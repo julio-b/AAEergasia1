@@ -170,6 +170,14 @@ namespace AAEergasia1 {
             var s = sender as ToolStripMenuItem;
             s.Checked = !s.Checked;
         }
+
+        private void rotateMainPic(object sender, EventArgs e) {
+            var s = sender as ToolStripMenuItem;
+            Bitmap img = new Bitmap(mainPicture.Image);
+            img.RotateFlip(s == rotate90ToolStripMenuItem ? RotateFlipType.Rotate90FlipNone : RotateFlipType.Rotate270FlipNone);
+            mainPicture.Image = img;
+            resizeImage(null, null);
+        }
     }
 
     class SidePanel {

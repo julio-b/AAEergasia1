@@ -39,6 +39,7 @@
             this.openImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oneColorOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negativeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateminus90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -215,7 +217,9 @@
             this.openImagesToolStripMenuItem,
             this.saveAsToolStripMenuItem1,
             this.exitToolStripMenuItem,
-            this.randomSlideShowToolStripMenuItem});
+            this.randomSlideShowToolStripMenuItem,
+            this.rotate90ToolStripMenuItem,
+            this.rotateminus90ToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -240,6 +244,13 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // randomSlideShowToolStripMenuItem
+            // 
+            this.randomSlideShowToolStripMenuItem.Name = "randomSlideShowToolStripMenuItem";
+            this.randomSlideShowToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.randomSlideShowToolStripMenuItem.Text = "random slide show";
+            this.randomSlideShowToolStripMenuItem.Click += new System.EventHandler(this.randomSlideShowToolStripMenuItem_Click);
             // 
             // imageFiltersToolStripMenuItem
             // 
@@ -344,12 +355,19 @@
             this.saveFileDialog1.SupportMultiDottedExtensions = true;
             this.saveFileDialog1.Title = "Save as..";
             // 
-            // randomSlideShowToolStripMenuItem
+            // rotate90ToolStripMenuItem
             // 
-            this.randomSlideShowToolStripMenuItem.Name = "randomSlideShowToolStripMenuItem";
-            this.randomSlideShowToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.randomSlideShowToolStripMenuItem.Text = "random slide show";
-            this.randomSlideShowToolStripMenuItem.Click += new System.EventHandler(this.randomSlideShowToolStripMenuItem_Click);
+            this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
+            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.rotate90ToolStripMenuItem.Text = "rotate90";
+            this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
+            // 
+            // rotateminus90ToolStripMenuItem
+            // 
+            this.rotateminus90ToolStripMenuItem.Name = "rotateminus90ToolStripMenuItem";
+            this.rotateminus90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.rotateminus90ToolStripMenuItem.Text = "rotateminus90";
+            this.rotateminus90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
             // 
             // Form1
             // 
@@ -409,6 +427,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem randomSlideShowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotate90ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateminus90ToolStripMenuItem;
     }
 }
 
