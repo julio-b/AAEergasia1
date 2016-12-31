@@ -206,13 +206,15 @@ namespace AAEergasia1 {
         }
 
         public void update() {
-            int Width = panel.Size.Width - 20;
+            int margin = 10;
+            int Width = panel.Size.Width - 2*margin - (panel.VerticalScroll.Visible?SystemInformation.VerticalScrollBarWidth:0);
             int Height = Width;///
             for (int i = 0; i < panel.Controls.Count; i++) {
                 Pic pic = (Pic)panel.Controls[i];
                 pic.Size = new Size(Width, Height);
-                pic.Top = 10 + (Height + 10) * i;
-                pic.Left = 10;
+                pic.Top = margin + (Height + margin) * i - panel.VerticalScroll.Value;
+                panel.HorizontalScroll.Value = 0;
+                pic.Left = margin;
             }
             panel.PerformLayout();
         }

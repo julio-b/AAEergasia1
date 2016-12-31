@@ -40,6 +40,8 @@
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotate90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateminus90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oneColorOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negativeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +53,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.rotate90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotateminus90ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -252,6 +252,20 @@
             this.randomSlideShowToolStripMenuItem.Text = "random slide show";
             this.randomSlideShowToolStripMenuItem.Click += new System.EventHandler(this.randomSlideShowToolStripMenuItem_Click);
             // 
+            // rotate90ToolStripMenuItem
+            // 
+            this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
+            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.rotate90ToolStripMenuItem.Text = "rotate90";
+            this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
+            // 
+            // rotateminus90ToolStripMenuItem
+            // 
+            this.rotateminus90ToolStripMenuItem.Name = "rotateminus90ToolStripMenuItem";
+            this.rotateminus90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.rotateminus90ToolStripMenuItem.Text = "rotateminus90";
+            this.rotateminus90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
+            // 
             // imageFiltersToolStripMenuItem
             // 
             this.imageFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -286,7 +300,6 @@
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -354,20 +367,6 @@
             this.saveFileDialog1.FileName = "image";
             this.saveFileDialog1.SupportMultiDottedExtensions = true;
             this.saveFileDialog1.Title = "Save as..";
-            // 
-            // rotate90ToolStripMenuItem
-            // 
-            this.rotate90ToolStripMenuItem.Name = "rotate90ToolStripMenuItem";
-            this.rotate90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.rotate90ToolStripMenuItem.Text = "rotate90";
-            this.rotate90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
-            // 
-            // rotateminus90ToolStripMenuItem
-            // 
-            this.rotateminus90ToolStripMenuItem.Name = "rotateminus90ToolStripMenuItem";
-            this.rotateminus90ToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.rotateminus90ToolStripMenuItem.Text = "rotateminus90";
-            this.rotateminus90ToolStripMenuItem.Click += new System.EventHandler(this.rotateMainPic);
             // 
             // Form1
             // 
