@@ -172,12 +172,31 @@ namespace AAEergasia1 {
         }
 
         private void rotateMainPic(object sender, EventArgs e) {
-            var s = sender as ToolStripMenuItem;
+            var s = sender as Button;
             Bitmap img = new Bitmap(mainPicture.Image);
-            img.RotateFlip(s == rotate90ToolStripMenuItem ? RotateFlipType.Rotate90FlipNone : RotateFlipType.Rotate270FlipNone);
+            img.RotateFlip(s == rotateRight ? RotateFlipType.Rotate90FlipNone : RotateFlipType.Rotate270FlipNone);
             mainPicture.Image = img;
             resizeImage(null, null);
         }
+
+        private void richTextBox1_Enter(object sender, EventArgs e)
+        {
+            if(richTextBox1.ForeColor == Color.Gray)
+            {
+                richTextBox1.Clear();
+                richTextBox1.ForeColor = Color.Black;
+            }
+        }
+
+        private void richTextBox1_Leave(object sender, EventArgs e)
+        {
+            if(richTextBox1.Text == "")
+            {
+                richTextBox1.Text = "Describe image here...";
+                richTextBox1.ForeColor = Color.Gray;
+            }
+        }
+
     }
 
     class SidePanel {
