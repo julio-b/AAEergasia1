@@ -8,13 +8,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace AAEergasia1 {
     public partial class Form1 : Form {
         private SidePanel side;
+        bool description = false;
+
         public Form1() {
             InitializeComponent();
             side = new SidePanel(splitContainer1.Panel1);
+            loadFonts();            
+        }
+
+        private void loadFonts()
+        {
+            PrivateFontCollection icons = new PrivateFontCollection();
+            icons.AddFontFile(@"../../Resources/icons.ttf");
+            Font small = new Font(icons.Families[0], 10);
+            previousBtn.Font = small;
+            nextBtn.Font = small;
+            switchSidePanelBtn.Font = small;
+            Font medium = new Font(icons.Families[0], 20);
+            rotateLeft.Font = medium;
+            rotateRight.Font = medium;
+            descBtn.Font = medium;
+            Font big = new Font(icons.Families[0], 30);
+            slideShowBtn.Font = big;
+            addBtn.Font = big;
         }
 
         private void splitContainer1_Panel1_SizeChanged(object sender, EventArgs e) {
@@ -96,11 +117,7 @@ namespace AAEergasia1 {
         private void switchSidePanelBtn_Click(object sender, EventArgs e) {
             side.panel.Visible = !side.panel.Visible;
             splitContainer1.Panel1Collapsed = !side.panel.Visible;
-            switchSidePanelBtn.Text = side.panel.Visible ? "<" : ">";
-        }
-
-        private void checkBox1_CheckStateChanged(object sender, EventArgs e) {
-            richTextBox1.Visible = checkBox1.Checked;
+            switchSidePanelBtn.Text = side.panel.Visible ? "\uf101" : "\uf100";
         }
 
         private void slideShowBtn_Click(object sender, EventArgs e)
@@ -197,6 +214,13 @@ namespace AAEergasia1 {
             }
         }
 
+        private void descBtn_Click(object sender, EventArgs e)
+        {
+            description = !description;
+            if (description) descBtn.ForeColor = Color.Green;
+            else descBtn.ForeColor = Color.Black;
+            richTextBox1.Visible = description;
+        }
     }
 
     class SidePanel {

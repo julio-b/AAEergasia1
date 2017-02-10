@@ -23,16 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.descBtn = new System.Windows.Forms.Button();
             this.rotateLeft = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.rotateRight = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.zoomBar = new System.Windows.Forms.TrackBar();
             this.slideShowBtn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.previousBtn = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.nextBtn = new System.Windows.Forms.Button();
@@ -67,42 +67,75 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.controlPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 531);
+            this.panel1.Location = new System.Drawing.Point(0, 500);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 52);
+            this.panel1.Size = new System.Drawing.Size(971, 83);
             this.panel1.TabIndex = 0;
             // 
             // controlPanel
             // 
+            this.controlPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.controlPanel.Controls.Add(this.addBtn);
+            this.controlPanel.Controls.Add(this.descBtn);
             this.controlPanel.Controls.Add(this.rotateLeft);
             this.controlPanel.Controls.Add(this.label2);
             this.controlPanel.Controls.Add(this.rotateRight);
             this.controlPanel.Controls.Add(this.label1);
             this.controlPanel.Controls.Add(this.zoomBar);
             this.controlPanel.Controls.Add(this.slideShowBtn);
-            this.controlPanel.Controls.Add(this.checkBox1);
             this.controlPanel.Controls.Add(this.previousBtn);
             this.controlPanel.Controls.Add(this.radioButton2);
             this.controlPanel.Controls.Add(this.nextBtn);
             this.controlPanel.Controls.Add(this.radioButton1);
-            this.controlPanel.Location = new System.Drawing.Point(168, 5);
+            this.controlPanel.Location = new System.Drawing.Point(41, 5);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(757, 42);
+            this.controlPanel.Size = new System.Drawing.Size(917, 65);
             this.controlPanel.TabIndex = 4;
+            // 
+            // addBtn
+            // 
+            this.addBtn.FlatAppearance.BorderSize = 0;
+            this.addBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBtn.ForeColor = System.Drawing.Color.SlateBlue;
+            this.addBtn.Location = new System.Drawing.Point(3, 8);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(53, 52);
+            this.addBtn.TabIndex = 8;
+            this.addBtn.Text = "";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.openImagesToolStripMenuItem_Click);
+            // 
+            // descBtn
+            // 
+            this.descBtn.FlatAppearance.BorderSize = 0;
+            this.descBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.descBtn.ForeColor = System.Drawing.Color.Black;
+            this.descBtn.Location = new System.Drawing.Point(659, 17);
+            this.descBtn.Name = "descBtn";
+            this.descBtn.Size = new System.Drawing.Size(38, 35);
+            this.descBtn.TabIndex = 7;
+            this.descBtn.Text = "";
+            this.descBtn.UseVisualStyleBackColor = true;
+            this.descBtn.Click += new System.EventHandler(this.descBtn_Click);
             // 
             // rotateLeft
             // 
-            this.rotateLeft.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.rotateLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rotateLeft.BackgroundImage")));
+            this.rotateLeft.BackColor = System.Drawing.Color.LightGray;
             this.rotateLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rotateLeft.Location = new System.Drawing.Point(38, 6);
+            this.rotateLeft.FlatAppearance.BorderSize = 0;
+            this.rotateLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.rotateLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rotateLeft.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.rotateLeft.Location = new System.Drawing.Point(142, 10);
             this.rotateLeft.Name = "rotateLeft";
-            this.rotateLeft.Size = new System.Drawing.Size(33, 31);
+            this.rotateLeft.Size = new System.Drawing.Size(48, 49);
             this.rotateLeft.TabIndex = 6;
+            this.rotateLeft.Text = "";
             this.rotateLeft.UseVisualStyleBackColor = false;
             this.rotateLeft.Click += new System.EventHandler(this.rotateMainPic);
             // 
@@ -111,7 +144,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(696, 2);
+            this.label2.Location = new System.Drawing.Point(877, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 30);
             this.label2.TabIndex = 4;
@@ -120,13 +153,17 @@
             // 
             // rotateRight
             // 
-            this.rotateRight.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.rotateRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rotateRight.BackgroundImage")));
+            this.rotateRight.BackColor = System.Drawing.Color.LightGray;
             this.rotateRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.rotateRight.Location = new System.Drawing.Point(77, 6);
+            this.rotateRight.FlatAppearance.BorderSize = 0;
+            this.rotateRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.rotateRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rotateRight.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.rotateRight.Location = new System.Drawing.Point(207, 10);
             this.rotateRight.Name = "rotateRight";
-            this.rotateRight.Size = new System.Drawing.Size(33, 31);
+            this.rotateRight.Size = new System.Drawing.Size(49, 49);
             this.rotateRight.TabIndex = 5;
+            this.rotateRight.Text = "";
             this.rotateRight.UseVisualStyleBackColor = false;
             this.rotateRight.Click += new System.EventHandler(this.rotateMainPic);
             // 
@@ -135,7 +172,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(559, 2);
+            this.label1.Location = new System.Drawing.Point(740, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 30);
             this.label1.TabIndex = 3;
@@ -144,9 +181,9 @@
             // 
             // zoomBar
             // 
-            this.zoomBar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.zoomBar.BackColor = System.Drawing.Color.LightGray;
             this.zoomBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zoomBar.Location = new System.Drawing.Point(586, 10);
+            this.zoomBar.Location = new System.Drawing.Point(767, 17);
             this.zoomBar.Maximum = 70;
             this.zoomBar.Minimum = -70;
             this.zoomBar.Name = "zoomBar";
@@ -157,41 +194,38 @@
             // 
             // slideShowBtn
             // 
-            this.slideShowBtn.Location = new System.Drawing.Point(164, 9);
+            this.slideShowBtn.FlatAppearance.BorderSize = 0;
+            this.slideShowBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.slideShowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.slideShowBtn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.slideShowBtn.Location = new System.Drawing.Point(325, 10);
             this.slideShowBtn.Name = "slideShowBtn";
-            this.slideShowBtn.Size = new System.Drawing.Size(80, 23);
+            this.slideShowBtn.Size = new System.Drawing.Size(55, 49);
             this.slideShowBtn.TabIndex = 5;
-            this.slideShowBtn.Text = "Slide Show";
+            this.slideShowBtn.Text = "";
             this.slideShowBtn.UseVisualStyleBackColor = true;
             this.slideShowBtn.Click += new System.EventHandler(this.slideShowBtn_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(472, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Details";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
-            // 
             // previousBtn
             // 
-            this.previousBtn.Location = new System.Drawing.Point(132, 11);
+            this.previousBtn.FlatAppearance.BorderSize = 0;
+            this.previousBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.previousBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.previousBtn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.previousBtn.Location = new System.Drawing.Point(293, 19);
             this.previousBtn.Name = "previousBtn";
-            this.previousBtn.Size = new System.Drawing.Size(26, 21);
+            this.previousBtn.Size = new System.Drawing.Size(26, 31);
             this.previousBtn.TabIndex = 1;
-            this.previousBtn.Text = "<";
+            this.previousBtn.Text = "";
             this.previousBtn.UseVisualStyleBackColor = true;
             this.previousBtn.Click += new System.EventHandler(this.nextPic);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton2.Location = new System.Drawing.Point(373, 10);
+            this.radioButton2.Location = new System.Drawing.Point(554, 21);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(78, 21);
             this.radioButton2.TabIndex = 3;
@@ -201,21 +235,25 @@
             // 
             // nextBtn
             // 
-            this.nextBtn.Location = new System.Drawing.Point(250, 11);
+            this.nextBtn.FlatAppearance.BorderSize = 0;
+            this.nextBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextBtn.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.nextBtn.Location = new System.Drawing.Point(386, 19);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(28, 21);
+            this.nextBtn.Size = new System.Drawing.Size(28, 31);
             this.nextBtn.TabIndex = 0;
-            this.nextBtn.Text = ">";
+            this.nextBtn.Text = "";
             this.nextBtn.UseVisualStyleBackColor = true;
             this.nextBtn.Click += new System.EventHandler(this.nextPic);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton1.Location = new System.Drawing.Point(284, 10);
+            this.radioButton1.Location = new System.Drawing.Point(465, 21);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(83, 21);
             this.radioButton1.TabIndex = 2;
@@ -331,23 +369,24 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightBlue;
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightSlateGray;
             this.splitContainer1.Panel2.Controls.Add(this.switchSidePanelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.mainPicture);
-            this.splitContainer1.Size = new System.Drawing.Size(971, 507);
+            this.splitContainer1.Size = new System.Drawing.Size(971, 476);
             this.splitContainer1.SplitterDistance = 123;
             this.splitContainer1.TabIndex = 2;
             // 
             // switchSidePanelBtn
             // 
+            this.switchSidePanelBtn.FlatAppearance.BorderSize = 0;
             this.switchSidePanelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.switchSidePanelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchSidePanelBtn.Location = new System.Drawing.Point(3, 3);
             this.switchSidePanelBtn.Name = "switchSidePanelBtn";
-            this.switchSidePanelBtn.Size = new System.Drawing.Size(18, 22);
+            this.switchSidePanelBtn.Size = new System.Drawing.Size(33, 34);
             this.switchSidePanelBtn.TabIndex = 2;
-            this.switchSidePanelBtn.Text = "<";
+            this.switchSidePanelBtn.Text = "";
             this.switchSidePanelBtn.UseVisualStyleBackColor = true;
             this.switchSidePanelBtn.Click += new System.EventHandler(this.switchSidePanelBtn_Click);
             // 
@@ -358,7 +397,7 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.richTextBox1.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox1.Location = new System.Drawing.Point(173, 409);
+            this.richTextBox1.Location = new System.Drawing.Point(173, 378);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(478, 91);
@@ -373,7 +412,7 @@
             this.mainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPicture.Image = global::AAEergasia1.Properties.Resources.no_image;
-            this.mainPicture.Location = new System.Drawing.Point(153, 94);
+            this.mainPicture.Location = new System.Drawing.Point(153, 79);
             this.mainPicture.Name = "mainPicture";
             this.mainPicture.Size = new System.Drawing.Size(519, 331);
             this.mainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -438,7 +477,6 @@
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Panel controlPanel;
         private System.Windows.Forms.Button switchSidePanelBtn;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button slideShowBtn;
         private System.Windows.Forms.TrackBar zoomBar;
         private System.Windows.Forms.Label label2;
@@ -452,6 +490,8 @@
         private System.Windows.Forms.ToolStripMenuItem randomSlideShowToolStripMenuItem;
         private System.Windows.Forms.Button rotateRight;
         private System.Windows.Forms.Button rotateLeft;
+        private System.Windows.Forms.Button descBtn;
+        private System.Windows.Forms.Button addBtn;
     }
 }
 
