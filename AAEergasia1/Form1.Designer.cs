@@ -71,13 +71,14 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.controlPanel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 500);
+            this.panel1.Location = new System.Drawing.Point(0, 488);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 83);
+            this.panel1.Size = new System.Drawing.Size(1015, 77);
             this.panel1.TabIndex = 0;
             // 
             // controlPanel
             // 
+            this.controlPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.controlPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.controlPanel.Controls.Add(this.addBtn);
             this.controlPanel.Controls.Add(this.descBtn);
@@ -91,9 +92,9 @@
             this.controlPanel.Controls.Add(this.radioButton2);
             this.controlPanel.Controls.Add(this.nextBtn);
             this.controlPanel.Controls.Add(this.radioButton1);
-            this.controlPanel.Location = new System.Drawing.Point(41, 5);
+            this.controlPanel.Location = new System.Drawing.Point(153, 2);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(917, 65);
+            this.controlPanel.Size = new System.Drawing.Size(708, 65);
             this.controlPanel.TabIndex = 4;
             // 
             // addBtn
@@ -115,7 +116,7 @@
             this.descBtn.FlatAppearance.BorderSize = 0;
             this.descBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.descBtn.ForeColor = System.Drawing.Color.Black;
-            this.descBtn.Location = new System.Drawing.Point(659, 17);
+            this.descBtn.Location = new System.Drawing.Point(657, 17);
             this.descBtn.Name = "descBtn";
             this.descBtn.Size = new System.Drawing.Size(38, 35);
             this.descBtn.TabIndex = 7;
@@ -144,7 +145,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(877, 10);
+            this.label2.Location = new System.Drawing.Point(611, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 30);
             this.label2.TabIndex = 4;
@@ -172,7 +173,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(740, 9);
+            this.label1.Location = new System.Drawing.Point(464, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 30);
             this.label1.TabIndex = 3;
@@ -181,13 +182,14 @@
             // 
             // zoomBar
             // 
+            this.zoomBar.AutoSize = false;
             this.zoomBar.BackColor = System.Drawing.Color.LightGray;
             this.zoomBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zoomBar.Location = new System.Drawing.Point(767, 17);
+            this.zoomBar.Location = new System.Drawing.Point(491, 39);
             this.zoomBar.Maximum = 70;
             this.zoomBar.Minimum = -70;
             this.zoomBar.Name = "zoomBar";
-            this.zoomBar.Size = new System.Drawing.Size(104, 45);
+            this.zoomBar.Size = new System.Drawing.Size(114, 22);
             this.zoomBar.TabIndex = 6;
             this.zoomBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.zoomBar.Scroll += new System.EventHandler(this.zoomBar_Scroll);
@@ -225,9 +227,9 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.BackColor = System.Drawing.Color.Transparent;
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton2.Location = new System.Drawing.Point(554, 21);
+            this.radioButton2.Location = new System.Drawing.Point(554, 7);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
+            this.radioButton2.Size = new System.Drawing.Size(77, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
@@ -253,9 +255,9 @@
             this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Checked = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton1.Location = new System.Drawing.Point(465, 21);
+            this.radioButton1.Location = new System.Drawing.Point(465, 7);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
+            this.radioButton1.Size = new System.Drawing.Size(84, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
@@ -272,7 +274,7 @@
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(971, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1015, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -373,8 +375,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.switchSidePanelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.mainPicture);
-            this.splitContainer1.Size = new System.Drawing.Size(971, 476);
-            this.splitContainer1.SplitterDistance = 123;
+            this.splitContainer1.Size = new System.Drawing.Size(1015, 464);
+            this.splitContainer1.SplitterDistance = 128;
             this.splitContainer1.TabIndex = 2;
             // 
             // switchSidePanelBtn
@@ -397,7 +399,7 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.Font = new System.Drawing.Font("Segoe Print", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.richTextBox1.ForeColor = System.Drawing.Color.Gray;
-            this.richTextBox1.Location = new System.Drawing.Point(173, 378);
+            this.richTextBox1.Location = new System.Drawing.Point(191, 366);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.richTextBox1.Size = new System.Drawing.Size(478, 91);
@@ -412,7 +414,7 @@
             this.mainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPicture.Image = global::AAEergasia1.Properties.Resources.no_image;
-            this.mainPicture.Location = new System.Drawing.Point(153, 79);
+            this.mainPicture.Location = new System.Drawing.Point(172, 16);
             this.mainPicture.Name = "mainPicture";
             this.mainPicture.Size = new System.Drawing.Size(519, 331);
             this.mainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -434,12 +436,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 583);
+            this.ClientSize = new System.Drawing.Size(1015, 565);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(740, 500);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Photo Viewer";
