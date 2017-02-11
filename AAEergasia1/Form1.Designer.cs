@@ -47,6 +47,11 @@
             this.negativeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.realSizeToolStripMenuItem = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.switchSidePanelBtn = new System.Windows.Forms.Button();
@@ -336,7 +341,8 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.randomSlideShowToolStripMenuItem});
+            this.randomSlideShowToolStripMenuItem,
+            this.sizeToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
@@ -347,6 +353,47 @@
             this.randomSlideShowToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.randomSlideShowToolStripMenuItem.Text = "Random Slide Show";
             this.randomSlideShowToolStripMenuItem.Click += new System.EventHandler(this.randomSlideShowToolStripMenuItem_Click);
+            // 
+            // sizeToolStripMenuItem
+            // 
+            this.sizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.realSizeToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.toolStripTextBox1,
+            this.toolStripTextBox2});
+            this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.sizeToolStripMenuItem.Text = "Size";
+            // 
+            // realSizeToolStripMenuItem
+            // 
+            this.realSizeToolStripMenuItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.realSizeToolStripMenuItem.Items.AddRange(new object[] {
+            "RealSize",
+            "16:9",
+            "4:3",
+            "1024x576",
+            "Custom"});
+            this.realSizeToolStripMenuItem.Name = "realSizeToolStripMenuItem";
+            this.realSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 23);
+            this.realSizeToolStripMenuItem.SelectedIndexChanged += new System.EventHandler(this.realSizeToolStripMenuItem_SelectedIndexChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(209, 6);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Text = "600";
+            // 
+            // toolStripTextBox2
+            // 
+            this.toolStripTextBox2.Name = "toolStripTextBox2";
+            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox2.Text = "400";
             // 
             // aboutToolStripMenuItem
             // 
@@ -494,6 +541,11 @@
         private System.Windows.Forms.Button rotateLeft;
         private System.Windows.Forms.Button descBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox realSizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
     }
 }
 

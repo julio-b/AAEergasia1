@@ -18,7 +18,8 @@ namespace AAEergasia1 {
         public Form1() {
             InitializeComponent();
             side = new SidePanel(splitContainer1.Panel1);
-            loadFonts();            
+            loadFonts();
+            realSizeToolStripMenuItem.SelectedIndex = 0;
         }
 
         private void loadFonts()
@@ -220,6 +221,23 @@ namespace AAEergasia1 {
             if (description) descBtn.ForeColor = Color.Green;
             else descBtn.ForeColor = Color.Black;
             richTextBox1.Visible = description;
+        }
+
+        private void realSizeToolStripMenuItem_SelectedIndexChanged(object sender, EventArgs e) {///FIX THIS
+            string s =realSizeToolStripMenuItem.SelectedItem.ToString();
+            if (s.Equals("RealSize")) {
+                mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                mainPicture.Size = mainPicture.Image.Size;//real size
+                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            } else if (s.Equals("16:9")){
+                mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                mainPicture.Size = new Size(1600, 900);////////
+                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            } else if (s.Equals("4:3")) {
+                mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                mainPicture.Size = new Size(400, 300);
+                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            }
         }
     }
 
