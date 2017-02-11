@@ -49,9 +49,12 @@
             this.randomSlideShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realSizeToolStripMenuItem = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.widthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.heightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.oKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.switchSidePanelBtn = new System.Windows.Forms.Button();
@@ -60,6 +63,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -234,7 +238,7 @@
             this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton2.Location = new System.Drawing.Point(554, 7);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(77, 21);
+            this.radioButton2.Size = new System.Drawing.Size(78, 21);
             this.radioButton2.TabIndex = 3;
             this.radioButton2.Text = "Real size";
             this.radioButton2.UseVisualStyleBackColor = false;
@@ -262,7 +266,7 @@
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.radioButton1.Location = new System.Drawing.Point(465, 7);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 21);
+            this.radioButton1.Size = new System.Drawing.Size(83, 21);
             this.radioButton1.TabIndex = 2;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Stretched";
@@ -358,9 +362,7 @@
             // 
             this.sizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.realSizeToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.toolStripTextBox1,
-            this.toolStripTextBox2});
+            this.customToolStripMenuItem});
             this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
             this.sizeToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.sizeToolStripMenuItem.Text = "Size";
@@ -372,16 +374,31 @@
             "RealSize",
             "16:9",
             "4:3",
-            "1024x576",
-            "Custom"});
+            "1024x576"});
             this.realSizeToolStripMenuItem.Name = "realSizeToolStripMenuItem";
             this.realSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 23);
             this.realSizeToolStripMenuItem.SelectedIndexChanged += new System.EventHandler(this.realSizeToolStripMenuItem_SelectedIndexChanged);
             // 
-            // toolStripSeparator1
+            // customToolStripMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(209, 6);
+            this.customToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.widthToolStripMenuItem,
+            this.toolStripTextBox1,
+            this.heightToolStripMenuItem,
+            this.toolStripTextBox2,
+            this.toolStripSeparator1,
+            this.oKToolStripMenuItem});
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.customToolStripMenuItem.Text = "Custom";
+            // 
+            // widthToolStripMenuItem
+            // 
+            this.widthToolStripMenuItem.Enabled = false;
+            this.widthToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.widthToolStripMenuItem.Name = "widthToolStripMenuItem";
+            this.widthToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.widthToolStripMenuItem.Text = "Width";
             // 
             // toolStripTextBox1
             // 
@@ -389,11 +406,25 @@
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox1.Text = "600";
             // 
+            // heightToolStripMenuItem
+            // 
+            this.heightToolStripMenuItem.Enabled = false;
+            this.heightToolStripMenuItem.Name = "heightToolStripMenuItem";
+            this.heightToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heightToolStripMenuItem.Text = "Height";
+            // 
             // toolStripTextBox2
             // 
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox2.Text = "400";
+            // 
+            // oKToolStripMenuItem
+            // 
+            this.oKToolStripMenuItem.Name = "oKToolStripMenuItem";
+            this.oKToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.oKToolStripMenuItem.Text = "OK";
+            this.oKToolStripMenuItem.Click += new System.EventHandler(this.oKToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -479,6 +510,11 @@
             this.saveFileDialog1.SupportMultiDottedExtensions = true;
             this.saveFileDialog1.Title = "Save as..";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -543,9 +579,13 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox realSizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem widthToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem heightToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripMenuItem oKToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
