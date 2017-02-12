@@ -126,11 +126,13 @@ namespace AAEergasia1 {
         private Size prevSize; //gia to bug tou zoom ama allazei diastaseis h eikona
         private void zoomBar_Scroll(object sender, EventArgs e)
         {
+            Size oldSize = mainPicture.Size;
             float ratio = zoomBar.Value / 100f; //(-70,+70)%
             float w = prevSize.Width * (1 + ratio);
             float h = prevSize.Height * (1 + ratio);
             mainPicture.Size = new Size((int)w, (int)h);
-            mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
+            mainPicture.Left += (oldSize.Width - mainPicture.Size.Width) / 2; 
+            mainPicture.Top += (oldSize.Height - mainPicture.Size.Height) / 2;
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -264,10 +266,8 @@ namespace AAEergasia1 {
         private void mainPicture_MouseMove(object sender, MouseEventArgs e)
         {
             if (!mousePressed) return;
-            int nT = e.Y + mainPicture.Top - prevPos.Y;
-            int nL = e.X + mainPicture.Left - prevPos.X;
-            mainPicture.Top = (nT < splitContainer1.Panel2.Height - mainPicture.Size.Height || nT >= 0) ? mainPicture.Top : nT;
-            mainPicture.Left = (nL < splitContainer1.Panel2.Width - mainPicture.Size.Width || nL >= 0) ? mainPicture.Left : nL;
+            mainPicture.Top += e.Y - prevPos.Y;
+            mainPicture.Left += e.X - prevPos.X;
         }
 
         private void mainPicture_MouseUp(object sender, MouseEventArgs e)
