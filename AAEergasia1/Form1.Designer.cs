@@ -433,7 +433,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightSlateGray;
             this.splitContainer1.Panel2.Controls.Add(this.switchSidePanelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
@@ -474,9 +473,7 @@
             // 
             // mainPicture
             // 
-            this.mainPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPicture.Image = global::AAEergasia1.Properties.Resources.no_image;
             this.mainPicture.Location = new System.Drawing.Point(172, 16);
@@ -485,6 +482,9 @@
             this.mainPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mainPicture.TabIndex = 0;
             this.mainPicture.TabStop = false;
+            this.mainPicture.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseDown);
+            this.mainPicture.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseMove);
+            this.mainPicture.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mainPicture_MouseUp);
             // 
             // openFileDialog1
             // 

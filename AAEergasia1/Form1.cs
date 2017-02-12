@@ -252,6 +252,28 @@ namespace AAEergasia1 {
             }
         }
 
+        bool mousePressed = false;
+        Point prevPos;
+        private void mainPicture_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePressed = true;
+            prevPos = e.Location;
+        }
+
+        private void mainPicture_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!mousePressed || prevPos.X == e.X
+                || prevPos.Y == e.Y) return;
+            mainpicSizeLabel.Text = (e.X - prevPos.X) + " " + (e.Y - prevPos.Y);
+            mainPicture.Location = new Point(mainPicture.Location.X + e.X - prevPos.X
+                ,mainPicture.Location.Y + e.Y - prevPos.Y);
+            prevPos = e.Location;
+        }
+
+        private void mainPicture_MouseUp(object sender, MouseEventArgs e)
+        {
+            mousePressed = false;
+        }
     }
 
     class SidePanel {
