@@ -256,18 +256,19 @@ namespace AAEergasia1 {
         Point prevPos;
         private void mainPicture_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button != MouseButtons.Left) return;
             mousePressed = true;
             prevPos = e.Location;
         }
 
         private void mainPicture_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!mousePressed || prevPos.X == e.X
-                || prevPos.Y == e.Y) return;
+            if (!mousePressed) return;
             mainpicSizeLabel.Text = (e.X - prevPos.X) + " " + (e.Y - prevPos.Y);
-            mainPicture.Location = new Point(mainPicture.Location.X + e.X - prevPos.X
-                ,mainPicture.Location.Y + e.Y - prevPos.Y);
-            prevPos = e.Location;
+            var nT = e.Y + mainPicture.Top - prevPos.Y;
+            var nL = e.X + mainPicture.Left - prevPos.X;
+            mainPicture.Top = nT;
+            mainPicture.Left = nL;
         }
 
         private void mainPicture_MouseUp(object sender, MouseEventArgs e)
