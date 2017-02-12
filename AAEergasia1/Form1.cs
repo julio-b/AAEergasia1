@@ -264,11 +264,8 @@ namespace AAEergasia1 {
         private void mainPicture_MouseMove(object sender, MouseEventArgs e)
         {
             if (!mousePressed) return;
-            mainpicSizeLabel.Text = (e.X - prevPos.X) + " " + (e.Y - prevPos.Y);
-            var nT = e.Y + mainPicture.Top - prevPos.Y;
-            var nL = e.X + mainPicture.Left - prevPos.X;
-            mainPicture.Top = nT;
-            mainPicture.Left = nL;
+            mainPicture.Top += e.Y - prevPos.Y;
+            mainPicture.Left += e.X - prevPos.X;
         }
 
         private void mainPicture_MouseUp(object sender, MouseEventArgs e)
