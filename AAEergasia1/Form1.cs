@@ -186,9 +186,12 @@ namespace AAEergasia1 {
             Bitmap img = new Bitmap(mainPicture.Image);
             img.RotateFlip(s == rotateRight ? RotateFlipType.Rotate90FlipNone : RotateFlipType.Rotate270FlipNone);
             mainPicture.Image = img;
+            Point center = new Point(mainPicture.Left + mainPicture.Size.Width / 2, mainPicture.Top + mainPicture.Size.Height / 2);
             mainPicture.Size = new Size(prevSize.Height, prevSize.Width);
             prevSize = mainPicture.Size;
             zoomBar_Scroll(null, null);
+            mainPicture.Left += center.X - (mainPicture.Left + mainPicture.Size.Width / 2);
+            mainPicture.Top += center.Y - (mainPicture.Top + mainPicture.Size.Height / 2);
         }
 
         private void richTextBox1_Enter(object sender, EventArgs e)
@@ -274,6 +277,7 @@ namespace AAEergasia1 {
         {
             mousePressed = false;
         }
+
     }
 
     class SidePanel {
