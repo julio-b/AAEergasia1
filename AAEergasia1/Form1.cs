@@ -264,8 +264,10 @@ namespace AAEergasia1 {
         private void mainPicture_MouseMove(object sender, MouseEventArgs e)
         {
             if (!mousePressed) return;
-            mainPicture.Top += e.Y - prevPos.Y;
-            mainPicture.Left += e.X - prevPos.X;
+            int nT = e.Y + mainPicture.Top - prevPos.Y;
+            int nL = e.X + mainPicture.Left - prevPos.X;
+            mainPicture.Top = (nT < splitContainer1.Panel2.Height - mainPicture.Size.Height || nT >= 0) ? mainPicture.Top : nT;
+            mainPicture.Left = (nL < splitContainer1.Panel2.Width - mainPicture.Size.Width || nL >= 0) ? mainPicture.Left : nL;
         }
 
         private void mainPicture_MouseUp(object sender, MouseEventArgs e)
