@@ -109,9 +109,9 @@
             this.mainpicSizeLabel.AutoSize = true;
             this.mainpicSizeLabel.Location = new System.Drawing.Point(488, 43);
             this.mainpicSizeLabel.Name = "mainpicSizeLabel";
-            this.mainpicSizeLabel.Size = new System.Drawing.Size(49, 13);
+            this.mainpicSizeLabel.Size = new System.Drawing.Size(52, 13);
             this.mainpicSizeLabel.TabIndex = 9;
-            this.mainpicSizeLabel.Text = "RealSize";
+            this.mainpicSizeLabel.Text = "Real Size";
             // 
             // addBtn
             // 
@@ -433,6 +433,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.LightSlateGray;
             this.splitContainer1.Panel2.Controls.Add(this.switchSidePanelBtn);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
@@ -473,7 +474,9 @@
             // 
             // mainPicture
             // 
-            this.mainPicture.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mainPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPicture.Image = global::AAEergasia1.Properties.Resources.no_image;
             this.mainPicture.Location = new System.Drawing.Point(172, 16);

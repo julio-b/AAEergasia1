@@ -21,6 +21,16 @@ namespace AAEergasia1 {
             loadFonts();
             realSizeToolStripMenuItem.SelectedIndex = 0;
             prevSize = mainPicture.Image.Size;
+            splitContainer1.Panel2.MouseWheel += Panel2_MouseWheel;
+        }
+
+        private void Panel2_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0 && zoomBar.Value + zoomBar.LargeChange <= zoomBar.Maximum)
+                zoomBar.Value += zoomBar.LargeChange;
+            if (e.Delta < 0 && zoomBar.Value - zoomBar.LargeChange >= zoomBar.Minimum)
+                zoomBar.Value -= zoomBar.LargeChange;
+            zoomBar_Scroll(null, null);
         }
 
         private void loadFonts()
@@ -241,6 +251,7 @@ namespace AAEergasia1 {
                 realSizeToolStripMenuItem_SelectedIndexChanged(null, null);
             }
         }
+
     }
 
     class SidePanel {
