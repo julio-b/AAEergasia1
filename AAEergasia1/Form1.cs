@@ -43,15 +43,15 @@ namespace AAEergasia1 {
         private void splitContainer1_Panel1_SizeChanged(object sender, EventArgs e) {
             if(side!=null)
                 side.update();
-            resizeImage(null, null);
+            mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
         }
 
         private void openSidePic(object sender, MouseEventArgs e) {
             var p = sender as Pic;
             mainPicture.Image = p.Image;
             richTextBox1.Text = p.description;
-            resizeImage(null, null);
-            if(side.selected != null) //an den einai to prwto,mono tote exei prohgoumeno
+            if (customSize) oKToolStripMenuItem_Click(null, null); else realSizeToolStripMenuItem_SelectedIndexChanged(null, null);
+            if (side.selected != null) //an den einai to prwto,mono tote exei prohgoumeno
                 side.selected.BorderStyle = BorderStyle.None;
             side.selected = p;
             side.selected.BorderStyle = BorderStyle.Fixed3D;
@@ -85,35 +85,13 @@ namespace AAEergasia1 {
                 foreach (Pic p in side.panel.Controls)
                     p.MouseClick += openSidePic;
             }
+            if (side != null) side.update();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
             Application.Exit();
-        }
-
-        private void resizeImage(object sender, EventArgs e)
-        {
-            if (radioButton1.Checked)
-            {
-                mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-                zoomBar.Value = 0;
-                if(mainPicture.Image != null)
-                    zoomBar_Scroll(null, null);
-                label1.Visible = true;
-                label2.Visible = true;
-                zoomBar.Visible = true;
-            }
-            else if (radioButton2.Checked)
-            {
-                mainPicture.SizeMode = PictureBoxSizeMode.AutoSize;
-                mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
-                //hide zoom
-                label1.Visible = false;
-                label2.Visible = false;
-                zoomBar.Visible = false;
-            }
         }
 
         private void switchSidePanelBtn_Click(object sender, EventArgs e) {
@@ -196,7 +174,9 @@ namespace AAEergasia1 {
             Bitmap img = new Bitmap(mainPicture.Image);
             img.RotateFlip(s == rotateRight ? RotateFlipType.Rotate90FlipNone : RotateFlipType.Rotate270FlipNone);
             mainPicture.Image = img;
-            resizeImage(null, null);
+            mainPicture.Size = new Size(prevSize.Height, prevSize.Width);
+            prevSize = mainPicture.Size;
+            zoomBar_Scroll(null, null);
         }
 
         private void richTextBox1_Enter(object sender, EventArgs e)
@@ -225,10 +205,11 @@ namespace AAEergasia1 {
             richTextBox1.Visible = description;
         }
 
-        private void realSizeToolStripMenuItem_SelectedIndexChanged(object sender, EventArgs e) {///FIX THIS
+        bool customSize = false;
+        private void realSizeToolStripMenuItem_SelectedIndexChanged(object sender, EventArgs e) {
             string s = realSizeToolStripMenuItem.SelectedItem.ToString();
             mainPicture.SizeMode = PictureBoxSizeMode.StretchImage;
-            if (s.Equals("RealSize")) {
+            if (s.Equals("") || s.Equals("RealSize")) {
                 mainPicture.Size = mainPicture.Image.Size;
             } else if (s.Equals("16:9")) {
                 mainPicture.Size = new Size(1600, 900);
@@ -240,6 +221,8 @@ namespace AAEergasia1 {
             mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
             prevSize = mainPicture.Size;
             zoomBar.Value = 0; //reset zoom
+            customSize = false;
+            mainpicSizeLabel.Text = s;
         }
 
         private void oKToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,7 +235,11 @@ namespace AAEergasia1 {
                 mainPicture.Location = new Point(splitContainer1.Panel2.Width / 2 - mainPicture.Width / 2, splitContainer1.Panel2.Height / 2 - mainPicture.Height / 2);
                 prevSize = mainPicture.Size;
                 zoomBar.Value = 0; //reset zoom
-            } catch (Exception) { }
+                customSize = true;
+                mainpicSizeLabel.Text = w.ToString() + "x" + h.ToString();
+            } catch (Exception) {
+                realSizeToolStripMenuItem_SelectedIndexChanged(null, null);
+            }
         }
     }
 

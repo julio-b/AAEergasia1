@@ -25,6 +25,7 @@
         private void InitializeComponent() {
             this.panel1 = new System.Windows.Forms.Panel();
             this.controlPanel = new System.Windows.Forms.Panel();
+            this.mainpicSizeLabel = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.descBtn = new System.Windows.Forms.Button();
             this.rotateLeft = new System.Windows.Forms.Button();
@@ -34,9 +35,7 @@
             this.zoomBar = new System.Windows.Forms.TrackBar();
             this.slideShowBtn = new System.Windows.Forms.Button();
             this.previousBtn = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.nextBtn = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +53,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.heightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.oKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -63,7 +63,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.controlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBar)).BeginInit();
@@ -89,6 +88,7 @@
             // 
             this.controlPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.controlPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.controlPanel.Controls.Add(this.mainpicSizeLabel);
             this.controlPanel.Controls.Add(this.addBtn);
             this.controlPanel.Controls.Add(this.descBtn);
             this.controlPanel.Controls.Add(this.rotateLeft);
@@ -98,13 +98,20 @@
             this.controlPanel.Controls.Add(this.zoomBar);
             this.controlPanel.Controls.Add(this.slideShowBtn);
             this.controlPanel.Controls.Add(this.previousBtn);
-            this.controlPanel.Controls.Add(this.radioButton2);
             this.controlPanel.Controls.Add(this.nextBtn);
-            this.controlPanel.Controls.Add(this.radioButton1);
             this.controlPanel.Location = new System.Drawing.Point(153, 2);
             this.controlPanel.Name = "controlPanel";
             this.controlPanel.Size = new System.Drawing.Size(708, 65);
             this.controlPanel.TabIndex = 4;
+            // 
+            // mainpicSizeLabel
+            // 
+            this.mainpicSizeLabel.AutoSize = true;
+            this.mainpicSizeLabel.Location = new System.Drawing.Point(488, 43);
+            this.mainpicSizeLabel.Name = "mainpicSizeLabel";
+            this.mainpicSizeLabel.Size = new System.Drawing.Size(49, 13);
+            this.mainpicSizeLabel.TabIndex = 9;
+            this.mainpicSizeLabel.Text = "RealSize";
             // 
             // addBtn
             // 
@@ -154,7 +161,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(611, 31);
+            this.label2.Location = new System.Drawing.Point(613, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 30);
             this.label2.TabIndex = 4;
@@ -182,7 +189,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(464, 31);
+            this.label1.Location = new System.Drawing.Point(454, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 30);
             this.label1.TabIndex = 3;
@@ -194,11 +201,11 @@
             this.zoomBar.AutoSize = false;
             this.zoomBar.BackColor = System.Drawing.Color.LightGray;
             this.zoomBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zoomBar.Location = new System.Drawing.Point(491, 39);
-            this.zoomBar.Maximum = 70;
-            this.zoomBar.Minimum = -70;
+            this.zoomBar.Location = new System.Drawing.Point(481, 12);
+            this.zoomBar.Maximum = 90;
+            this.zoomBar.Minimum = -90;
             this.zoomBar.Name = "zoomBar";
-            this.zoomBar.Size = new System.Drawing.Size(114, 22);
+            this.zoomBar.Size = new System.Drawing.Size(126, 22);
             this.zoomBar.TabIndex = 6;
             this.zoomBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.zoomBar.Scroll += new System.EventHandler(this.zoomBar_Scroll);
@@ -231,19 +238,6 @@
             this.previousBtn.UseVisualStyleBackColor = true;
             this.previousBtn.Click += new System.EventHandler(this.nextPic);
             // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton2.Location = new System.Drawing.Point(554, 7);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.Text = "Real size";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.resizeImage);
-            // 
             // nextBtn
             // 
             this.nextBtn.FlatAppearance.BorderSize = 0;
@@ -257,21 +251,6 @@
             this.nextBtn.Text = "";
             this.nextBtn.UseVisualStyleBackColor = true;
             this.nextBtn.Click += new System.EventHandler(this.nextPic);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.radioButton1.Location = new System.Drawing.Point(465, 7);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Stretched";
-            this.radioButton1.UseVisualStyleBackColor = false;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.resizeImage);
             // 
             // menuStrip1
             // 
@@ -419,6 +398,11 @@
             this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox2.Text = "400";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
             // oKToolStripMenuItem
             // 
             this.oKToolStripMenuItem.Name = "oKToolStripMenuItem";
@@ -510,11 +494,6 @@
             this.saveFileDialog1.SupportMultiDottedExtensions = true;
             this.saveFileDialog1.Title = "Save as..";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,8 +535,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Button previousBtn;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Panel controlPanel;
@@ -586,6 +563,7 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.ToolStripMenuItem oKToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Label mainpicSizeLabel;
     }
 }
 
